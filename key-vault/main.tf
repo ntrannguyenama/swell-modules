@@ -104,5 +104,5 @@ module "secret" {
   app_name    = var.app_name
   environment = var.environment
 
-  key_vault = azurerm_key_vault.key_vault
+  key_vault = azurerm_key_vault.main
 }
