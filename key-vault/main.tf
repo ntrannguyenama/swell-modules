@@ -96,7 +96,7 @@ module "secret" {
   source = "../secret"
 
   for_each = {
-    for secret in local.key_vault.secret : "${secret.name}" => secret
+    for secret in var.key_vault.secret : "${secret.name}" => secret
   }
 
   secret = each.value
@@ -105,8 +105,4 @@ module "secret" {
   environment = var.environment
 
   key_vault = azurerm_key_vault.key_vault
-
-  depends_on = [ 
-    azurerm_key_vault_access_policy.key_vault_access_policy
-  ]
 }
