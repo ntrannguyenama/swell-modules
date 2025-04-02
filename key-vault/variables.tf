@@ -73,5 +73,11 @@ variable "admin_object_ids" {
 variable "key_vault" {
   type = object({
     sku_name = optional(string)
+    secret = optional(list(
+      object({
+        name    = string
+        value   = optional(string)
+      })
+    ))
   })
 }
