@@ -93,7 +93,7 @@ resource "azurerm_private_endpoint" "key_vault" {
 }
 
 module "secret" {
-  source = "git::https://864z-HPS-Global@dev.azure.com/864z-HPS-Global/HPS-AzureTools/_git/HPS-AzureTools-module-keyVault-secret"
+  source = "../secret"
 
   for_each = {
     for secret in local.key_vault.secret : "${secret.name}" => secret
@@ -101,8 +101,8 @@ module "secret" {
 
   secret = each.value
 
-  APP_NAME    = var.APP_NAME
-  ENVIRONMENT = var.ENVIRONMENT
+  app_name    = var.app_name
+  environment = var.environment
 
   key_vault = azurerm_key_vault.key_vault
 
