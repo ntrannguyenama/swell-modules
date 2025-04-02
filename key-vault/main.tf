@@ -96,7 +96,7 @@ module "secret" {
   source = "../secret"
 
   for_each = {
-    for secret in local.key_vault.secret : "${secret.name}" => secret
+    for secret in local.secret : "${secret.name}" => secret
   }
 
   secret = each.value
