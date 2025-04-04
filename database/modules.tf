@@ -6,7 +6,7 @@ locals {
   }
 
   server_name   = module.naming_sql.resource_name
-  database_name = module.naming_sqldb.resource_name
+  database_name = "main"
   pe_name      = module.naming_sql_pe.resource_name
 }
 
